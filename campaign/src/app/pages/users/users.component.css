@@ -1,0 +1,17 @@
+.downloads {
+    display: flex;
+}
+
+.downloads>button {
+    margin: 13px 2px;
+    text-align: center;
+    background-color: cornflowerblue;
+}
+
+mat-form-field{
+    width: 100%;
+}
+
+.row{
+    margin-top: 20px;
+}

@@ -1,0 +1,23 @@
+  <div class="container">
+    <div *ngFor="let campaign of campaigns" class="card">
+      <img [src]="campaign.image" alt="Product" class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title">{{ campaign.title }}</h5>
+        <div class="card-text" [innerHTML]="campaign.description"></div>
+        <br>
+        <div class="card-actions">
+          <a (click)="registerForCampaign(campaign)" class="card-link">Register</a>
+          <a (click)="knowMore(campaign)" class="card-link">Know more</a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pagination">
+    <button (click)="onPageChange(page - 1)" [disabled]="page === 1">Previous</button>
+    <button (click)="onPageChange(page + 1)" [disabled]="page * pageSize >= campaigns.length">Next</button>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

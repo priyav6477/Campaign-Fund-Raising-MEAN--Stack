@@ -1,0 +1,146 @@
+<div class="form-container">
+    <h2 *ngIf="userData.role=='Individual'" mat-dialog-title style="text-align: center;">Edit User Profile</h2>
+    <mat-dialog-content>
+        <form *ngIf="userData.role=='Individual'" [formGroup]="userForm">
+            <div class="row">
+                <div class="col">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input readonly matInput formControlName="email" placeholder="Email" required>
+                        <mat-error *ngIf="userForm.get('email')?.hasError('required')">Email is required</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Name</mat-label>
+                        <input readonly matInput formControlName="name" placeholder="Name" required>
+                        <mat-error *ngIf="userForm.get('name')?.hasError('required')">Name is required</mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Date of Birth</mat-label>
+                        <input matInput [matDatepicker]="dobPicker" placeholder="Choose a date" formControlName="dob">
+                        <mat-datepicker-toggle matSuffix [for]="dobPicker"></mat-datepicker-toggle>
+                        <mat-datepicker #dobPicker></mat-datepicker>
+                        <mat-error *ngIf="userForm.get('dob')?.hasError('required')">Date of Birth is
+                            required</mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Age</mat-label>
+                        <input matInput readonly formControlName="age" placeholder="Age" required>
+                        <mat-error *ngIf="userForm.get('age')?.hasError('required')">Age is required</mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row" *ngIf="userData.age < 18">
+                <div class="col">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Guardian Mobile Number</mat-label>
+                        <input matInput formControlName="guardianNumber" placeholder="Guardian Number" required>
+                        <mat-error *ngIf="userForm.get('guardianNumber')?.hasError('required')">Guardian Number is
+                            required</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Guardian Email</mat-label>
+                        <input matInput formControlName="guardianEmail" placeholder="Guardian Email" required>
+                        <mat-error *ngIf="userForm.get('guardianEmail')?.hasError('required')">Guardian Email is
+                            required</mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Mobile Number</mat-label>
+                        <input matInput formControlName="mobileNumber" placeholder="Mobile Number" required>
+                        <mat-error *ngIf="userForm.get('mobileNumber')?.hasError('required')">Mobile Number is
+                            required</mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Gender</mat-label>
+                        <mat-select formControlName="gender" required>
+                            <mat-option value="" disabled>Select Gender</mat-option>
+                            <mat-option value="Male">Male</mat-option>
+                            <mat-option value="Female">Female</mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="userForm.get('gender')?.hasError('required')">Gender is required</mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+        </form>
+
+        <form *ngIf="userData.role=='Organization'" [formGroup]="orgForm">
+            <div class="row">
+                <div class="col">
+                    <mat-form-field  appearance="outline">
+                        <mat-label>Authority Email</mat-label>
+                        <input readonly matInput formControlName="email" placeholder="Authority Email" required>
+                        <mat-error *ngIf="orgForm.get('email')?.hasError('required')">Authority Email is
+                            required</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col">
+                    <mat-form-field  appearance="outline">
+                        <mat-label>Organization Name</mat-label>
+                        <input readonly matInput formControlName="name" placeholder="Organization Name" required>
+                        <mat-error *ngIf="orgForm.get('name')?.hasError('required')">Organization Name is
+                            required</mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <mat-form-field  appearance="outline">
+                        <mat-label>Authority Name</mat-label>
+                        <input matInput formControlName="authorityName" placeholder="AuthorityS Name" required>
+                        <mat-error *ngIf="orgForm.get('authorityName')?.hasError('required')">Authority Name is
+                            required</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col">
+                    <mat-form-field  appearance="outline">
+                        <mat-label>Authority Date of Birth</mat-label>
+                        <input matInput [matDatepicker]="dobPicker" placeholder="Choose a date"
+                            formControlName="authorityDOB">
+                        <mat-datepicker-toggle matSuffix [for]="dobPicker"></mat-datepicker-toggle>
+                        <mat-datepicker #dobPicker></mat-datepicker>
+                        <mat-error *ngIf="orgForm.get('authorityDOB')?.hasError('required')">Authority Date of
+                            Birth is
+                            required</mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <mat-form-field  appearance="outline">
+                        <mat-label>Authority Number</mat-label>
+                        <input matInput formControlName="authorityPhone" placeholder="Authority Number" required>
+                        <mat-error *ngIf="orgForm.get('authorityPhone')?.hasError('required')">Authority Number
+                            is required</mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+        </form>
+    </mat-dialog-content>
+    <mat-dialog-actions align="center">
+        <button mat-raised-button mat-dialog-close color="primary">
+            Close
+        </button>
+        <button mat-raised-button color="primary" (click)="submit()">
+            Submit
+        </button>
+    </mat-dialog-actions>
+</div>

@@ -1,0 +1,18 @@
+<div class="navtabs-container">
+  <nav mat-tab-nav-bar fxFlex fxLayout="row" fxLayoutAlign="center center" [tabPanel]="tabPanel">
+    <a mat-tab-link routerLink="/campaign/home" routerLinkActive #accomodation="routerLinkActive"
+      [active]="accomodation.isActive">
+      Home
+    </a>
+    <a mat-tab-link routerLink="/campaign/my-campaigns" *ngIf="userType != 'Admin'" routerLinkActive #myCampaign="routerLinkActive"
+      [active]="myCampaign.isActive">
+      My Campaigns
+    </a>
+    <a mat-tab-link routerLink="/campaign/manage-users" *ngIf="userType == 'Admin'" routerLinkActive
+      #users="routerLinkActive" [active]="users.isActive">
+      Manage Users
+    </a>
+  </nav>
+  <mat-tab-nav-panel #tabPanel>
+  </mat-tab-nav-panel>
+</div>

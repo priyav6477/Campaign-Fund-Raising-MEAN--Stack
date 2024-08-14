@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <img [src]="campaign" alt="Cause" class="cause-image">
+        <div class="description" [innerHTML]="description"></div>
+      </div>
+      <div class="col-md-6">
+        <h1 style="text-align: center;">Donate now</h1>
+  
+     
+        <div class="donation-amounts mt-3">
+          <button class="btn btn-outline-secondary" (click)="updateAmount(10)">$10</button>&nbsp;
+          <button class="btn btn-outline-secondary" (click)="updateAmount(20)">$20</button>&nbsp;
+          <button class="btn btn-outline-secondary" (click)="updateAmount(30)">$30</button>&nbsp;
+          <button class="btn btn-outline-secondary" (click)="updateAmount(60)">$60</button>&nbsp;
+          <input type="number" [(ngModel)]="amount" name="amountInput" class="form-control custom-amount" placeholder="$ Other amount" min="1">
+        </div>
+  
+        <div #paymentRef></div>
+  
+       
+        <div class="help-links mt-3">
+          <a routerLink="/campaign/faq" style="cursor: pointer;text-align: center;">FAQ</a> | <a href="mailto:recipient@example.com" target="_blank">Send us an email</a>
+        </div>
+  
+        <div class="legal-info">
+          Contributions to Fund Raising, a 501(c)(3) organization based in India, are tax-deductible to the fullest extent permitted by law.
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,17 @@
+.card {
+    /* background-image: linear-gradient(to left bottom, #6bd1cb, #5bccd6, #54c5e0, #5abee7, #6ab5ea, #64b3e9, #5eb2e9, #58b0e8, #2bb5e2, #00b9d6, #00bcc5, #0abdb1);    margin-bottom: 20px; Adjust margin as needed */
+    border: 1px solid #ccc; /* Optional: Add a border */
+    border-radius: 10px; /* Optional: Add border radius for rounded corners */
+    max-width: 600px; /* Set maximum width for the card */
+    margin: 20px auto; /* Center the card horizontally */
+    background-color: beige;
+  }
+  
+  .card-body {
+    padding: 20px; /* Adjust padding as needed */
+  }
+  
+  .medium-img {
+    max-width: 600px; /* Adjust this value as needed */
+  }
+  

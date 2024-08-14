@@ -1,0 +1,117 @@
+<div class="container">
+    <br>
+    <br>
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col">
+                <mat-form-field appearance="outline">
+                    <mat-label>User Type</mat-label>
+                    <mat-select formControlName="role" required (selectionChange)="roleChange()">
+                        <mat-option value="Individual">Individual</mat-option>
+                        <mat-option value="Organization">Organization</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="userForm.get('role')?.hasError('required')">User Type is required</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <div style="display: flex; justify-content: center;">
+                    <button style="text-align: center;" mat-raised-button color="primary" type="submit">Submit</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <br>
+    <div *ngIf="displayFrstTbl" class="table-responsive">
+        <table mat-table #firstTableSort="matSort" matSort [dataSource]="dataSource">
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="role">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Role </th>
+                <td mat-cell *matCellDef="let element"> {{element.role}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="email">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+                <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+            </ng-container>
+            <ng-container matColumnDef="dob">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Date of Birth </th>
+                <td mat-cell *matCellDef="let element"> {{element.dob| date:'yyyy-MM-dd'}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="age">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Age </th>
+                <td mat-cell *matCellDef="let element"> {{element.age}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="mobile">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Mobile </th>
+                <td mat-cell *matCellDef="let element"> {{element.mobileNumber}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="gender">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Gender </th>
+                <td mat-cell *matCellDef="let element"> {{element.gender}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+                <td mat-cell *matCellDef="let element" class="downloads">
+                    <button type="button" mat-raised-button (click)="showPrompt(element)">Update</button>
+                    <button type="button" mat-raised-button (click)="openDialog(element)">Delete</button>
+                </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="tableColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: tableColumns;"></tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 50]" #paginator></mat-paginator>
+    </div>
+
+    <div *ngIf="displayScndTbl" class="table-responsive">
+        <table mat-table #firstTableSort="matSort" matSort [dataSource]="dataSource">
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="role">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Role </th>
+                <td mat-cell *matCellDef="let element"> {{element.role}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="email">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+                <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="authName">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Authority Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.authorityName}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="dob">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Date of Birth </th>
+                <td mat-cell *matCellDef="let element"> {{element.authorityDOB | date:'yyyy-MM-dd'}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="mobile">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Authority Phone </th>
+                <td mat-cell *matCellDef="let element"> {{element.authorityPhone}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+                <td mat-cell *matCellDef="let element" class="downloads">
+                    <button type="button" mat-raised-button (click)="showPrompt(element)">Update</button>
+                    <button type="button" mat-raised-button (click)="openDialog(element)">Delete</button>
+                </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="scndTblColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: scndTblColumns;"></tr>
+        </table>
+        <mat-paginator #paginator [pageSizeOptions]="[5, 10, 25, 50]"></mat-paginator>
+    </div>
+</div>

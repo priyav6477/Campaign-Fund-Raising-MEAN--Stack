@@ -1,0 +1,133 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+.logo {
+    height: 40px;
+}
+
+.menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.left-section, .right-section {
+    width: 45%;
+}
+
+.cause-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.description {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.right-section {
+    text-align: center;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.donation-type {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.donation-toggle {
+    padding: 10px 20px;
+    margin: 0 5px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+.donation-toggle.active {
+    background-color: #0070f3;
+    color: #fff;
+    border: none;
+}
+
+.donation-amounts {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.amount {
+    padding: 10px 20px;
+    margin: 0 5px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+.custom-amount {
+    padding: 10px 20px;
+    margin-left: 5px;
+    border: 1px solid #ddd;
+    outline: none;
+    text-align: center;
+}
+
+.payment-methods {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.payment-method {
+    padding: 10px 20px;
+    margin: 0 5px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+.secure-payment {
+    margin-bottom: 20px;
+}
+
+.additional-options, .help-links {
+    margin-bottom: 20px;
+}
+
+.additional-options a, .help-links a {
+    margin: 0 5px;
+    color: #0070f3;
+    text-decoration: none;
+}
+
+.additional-options a:hover, .help-links a:hover {
+    text-decoration: underline;
+}
+
+.legal-info {
+    font-size: 14px;
+    color: #666;
+}

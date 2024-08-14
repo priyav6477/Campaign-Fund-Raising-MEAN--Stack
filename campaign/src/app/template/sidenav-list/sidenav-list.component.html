@@ -1,0 +1,20 @@
+<mat-nav-list class="sidenav-list">
+  <!-- Display logged in user with profile photo -->
+  <div class="user-profile-card">
+    <img src="/assets/user-icon.png" style="width: -webkit-fill-available;padding: 50px;" alt="User">
+  </div>
+  <span class="email">Email : <strong>{{ user.email }}</strong></span> <br>
+  <span class="username">Name : <strong>{{ user.name }}</strong></span>
+  <a style="margin-top: 20px;" mat-list-item routerLink="/campaign/create" *ngIf="user.role=='Admin'||user.role=='Organization'" class="logout-link">
+    <mat-icon class="icon">add_box</mat-icon>
+    <span>Create Campaign</span>
+  </a>
+  <a mat-list-item routerLink="/campaign/edit-profile" *ngIf="user.role=='Individual'||user.role=='Organization'" class="logout-link">
+    <mat-icon class="icon">edit</mat-icon>
+    <span>Edit Profile</span>
+  </a>
+  <a mat-list-item routerLink="/" class="logout-link">
+    <mat-icon class="icon">exit_to_app</mat-icon>
+    <span>Logout</span>
+  </a>
+</mat-nav-list>
